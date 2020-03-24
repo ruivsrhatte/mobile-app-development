@@ -1,0 +1,538 @@
+/*!
+ * Created by Jayant Bramhankar (www.sahyadritechnologies.com) 
+ * Youtube Channel - https://www.youtube.com/channel/UCPSeFaxM6ni_HGpfkb3Kwbw;
+ * License - Free to use
+ */
+
+* {
+  box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+    text-transform:;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app1 {
+    background:url(../img/b.png) no-repeat center top; /* 170px x 200px */
+    border:2px solid black; 
+    border-radius:200px;
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:210px;                   /* text area height */
+    width:210px;                   /* text area width */
+    text-align:center;
+    padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: -100px 0px 0px -100px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app1{
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body
+{
+  background: #fcfcfc;
+	
+    height: 100%;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+
+
+/*Home Index page css starts here*/
+
+
+.tabaco{
+
+ 
+  padding:5px 0px 10px 80px;
+  top: 0px;
+  left: -40px;
+  right: 0px;
+  margin: 0px 0px 0px 40px;
+  border: 1px solid black;
+   position: fixed;
+    background-color: rgba(33,152,212,1);
+   overflow: hidden;
+    z-index: 1;
+
+
+}
+ 
+.menubar{
+  list-style-type: none;
+  margin-top: -20px;
+  padding: 0;
+  left: 5px;
+  overflow: hidden;
+  position: fixed;
+  border: 1px solid #5fb4fb;
+  z-index: 2;
+
+
+
+  
+}
+.menubar li{
+  float: left;
+display: flex;
+  
+
+}
+
+
+.menubar li a {   
+    display: block;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #fff;
+  text-align: center;
+}
+ 
+.menubar li a.active {
+    color: #111;
+
+}
+.menubar li a:hover {
+    background-color: #555;
+    color: white;
+}
+.menubar li a i{
+  padding: 5px;
+}
+
+.menushape1{
+  width: 450px;
+  height: 450px;
+  background-color: rgba(33,152,212,1);
+background: linear-gradient(90deg, rgba(33,152,212,1) 5%, rgba(25,152,254,0.91) 35%, rgba(40,158,252,0.62) 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  z-index: -1;
+   position: fixed;
+}
+
+
+.menushape2{
+  width: 400px;
+  height: 400px;
+  background-color: rgba(33,152,212,1);
+background: linear-gradient(90deg, rgba(33,152,212,1) 5%, rgba(25,152,254,0.91) 35%, rgba(255,255,255,0.62) 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: -100px;
+  z-index: -1;
+   position: fixed;
+}
+
+.sidenav{
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #555;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 100;
+
+}
+
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 7px;
+    font-size: 1.5em;
+    color: rgba(33,152,212,1);
+}
+#main {
+  transition: margin-left .3s;
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenavshape{
+  width: 400px;
+  height: 500px;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 5%, rgba(116,203,247,1) 35%, rgba(33,152,212,1) 100%);
+  border-radius: 10%;
+  transform: rotate(40deg);
+  position: absolute;
+  top: -80px;
+  left: -230px;
+  z-index: -1;
+}
+
+.sidenav ul{
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+ 
+}
+
+.sidenav li:last-child{
+  margin-top: auto;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  vertical-align: bottom;
+  font-size: 0.8em;
+  width: 120px;
+  border:1px solid rgba(244, 215, 66,0.4);
+ }
+
+.sidenav li a:not(.closebtn) {
+    display: block;
+    color: #fff;
+    padding: 8px 14px;
+    font-weight: 400;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    width: 160px;
+}
+
+.sidenav li.active a {
+  font-weight: 600;
+}
+.sidenav li a:hover {
+    background-color: #555;
+    color: white;
+}
+ /* Dropdown Button */
+.dropbtn {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding: 5px 10px;
+
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #555;
+  font-weight: 600;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #555;
+  color:#fff;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin:30px 0;
+   font-size: 1.2em;
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;
+
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+.profile img{
+  width: 100px;
+  background-color: rgba(244, 215, 66,0.4)
+  border:5px solid rgba(244, 215, 66,0.8);
+  float: right;
+  margin: 0 45px;
+}
+
+.profile h3{
+  position: absolute;
+  font-size: 1.4em;
+  width: 100px;
+  
+  
+  margin: 2px 0;
+  color: #555;
+  top: 75px;
+  left: 20px;
+}
+
+.profile p{
+  position: absolute;
+  top: 130px;
+  left: 20px;
+  color: #000;
+  border-top: 1px solid #fff;
+  letter-spacing: 1px;
+}
+
+.clearfix
+{
+  clear: both;
+}
+
+
+/**HOME PAGE**/
+
+.spot{
+  margin-top:25px; 
+  padding: 5px;
+
+
+}
+
+.spot h2{
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-size: 1.5em;
+  font-weight: 800;
+  
+  margin: 50px 0;
+}
+
+.spot h2 span{
+    border-bottom: 3px solid #555;
+    display: inline-block;
+    margin: 0 0 -2px 0;
+    padding: 5px 3px;
+}
+
+.spot .spot-img {
+
+  padding: 15px;
+  position: relative;
+}
+
+.spot .spot-img img{ 
+  height: 200px;
+  width: 100%;
+  border:5px solid rgba(3,152,212,1);
+  border-radius: 10px;
+  float: left;
+  box-shadow: -4px -2px 0.5px rgba(3,152,212,1);
+  position: relative;
+  top: -10px;
+  position: relative;
+}
+.spot .spot-desc {
+  margin-top: 10px;
+  height: 130px;
+  border-top:1px dashed rgba(3,152,212,1);
+  border-bottom:1px dotted rgba(3,152,212,1);
+  padding: 5px 0 0 15px;
+  float: left;
+  width: 100%;
+  overflow: scroll;
+}
+
+.spot .spot-img h4{
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.spot .spot-img p{
+  font-size: 0.9em;
+}
+
+
+.spot .spot-img .social{ 
+  height: 50px;
+  width: 100%;
+  border:5px solid rgba(64,89,231,0.4);
+  border-radius: 0px;
+  float: right;
+  box-shadow: 0px 5px 1px rgba(0,0,0,0.7);
+  position: relative;
+  bottom: -10px;
+ text-align: center;
+  display: flex;
+  text-indent: 40px;
+  margin-left: px;
+ left: -18px;
+ top: 5px;
+ padding-right: 348px;
+    
+ 
+}
+
+.spot .spot-img .social a{
+  line-height: 30px;
+}
+
+/*expand*/
+#more {display: none;}
+
+
+/* Position the image container (needed to position the left and right arrows) */
+.container-slide {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  margin-left: -100%;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 10px;
+  height: 30px;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
