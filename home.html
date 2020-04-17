@@ -9,11 +9,10 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
 
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-
         <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
 
         
 
@@ -22,12 +21,19 @@
     <body>
 
         <div class="container">
+			
 	
-      <div class="app" id="main">
+      <div class="app" id="">
 			<div class="menushape1"></div>
                 
-			<div class="menushape2"></div>
-
+      <div class="menushape2"></div>
+	  <div class="navbar">
+		<a href="#home" class="active"><i class="fas fa-home"></i></a>
+		<a href="#news"><i class="fas fa-search"></i></a>
+		<a href="#contact" ><i style="font-size: 2em; color: rgb(209, 32, 32)" class="fas fa-heart"></i></a>
+		<a href="#contact"><i class="fas fa-map-marker-alt"></i></a>
+		<a href="#contact"><i class="far fa-user"></i></a>
+	  </div>
             <div><h3 class="tabaco">The City of Love</h3></div>
 			<ul class="menubar">
 				<li><a class="active"  href="javascript:void(0)" onclick="openNav()"><i class="fas fa-bars"></i></a></li>
@@ -38,7 +44,7 @@
 				<div class="profile">
 					<img src="images/tabacocity.png" alt="avtar">
 					<h3>TABACO CITY</h3>
-					<p>City of Love</h3>
+					
 				</div>
 				<div class="clearfix"></div>
 
@@ -58,82 +64,30 @@
 					<li><a href=""><i class="fab fa-blogger"> Blogs</i></a></li>
 					<li><a href=""><i class="fas fa-phone-square"> Contact</i> </i></a></li>
                     <li><a href=""><i class="fas fa-info-circle"> About</i></a></li>
-					<li><a href="https://free.facebook.com/"><i class="far fa-thumbs-up"></i> Follow us</a></li>
+          <li><a href="javascript:void(0)" id="follow"><i class="far fa-thumbs-up"></i> Follow us</a></li>
+          
 
 				</ul> 
-
 			</div>
-		          </div>
+		          
 				 <!-- Home page starts here -->
 
-		          <div class="spot">
-		          	<h2><span>Tourist Spots</span></h2>		          	
+		          <div class="t-spot">
+					  <h2><span><a href="#">Tourist Spots</a></span></h2>
+					  <h2><span><a href="#">Heritage</a></span></h2>
+				  </div>
+				  <div class="spot">		          	
 		          	<div class="row spot-img">
-
-<div class="container-slide">
-
-  <!-- Full-width images with number text -->
-  <div class="mySlides">
-    <div class="numbertext">1 / 6</div>
-      <img src="images/mayon-rest-house.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">2 / 6</div>
-      <img src="images/mayon-rest-house1.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">3 / 6</div>
-      <img src="images/mayon-rest-house2.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">4 / 6</div>
-      <img src="images/mayon-rest-house.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">5 / 6</div>
-      <img src="images/mayon-rest-house1.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">6 / 6</div>
-      <img src="images/mayon-rest-house2.jpg" style="width:100%">
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-  <!-- Image text -->
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
-
-  <!-- Thumbnail images -->
-  <div class="row">
-    <div class="column">
-      <img class="demo cursor" src="images/mayon-rest-house.jpg" style="width:100%; height:50px" onclick="currentSlide(1)" alt="">
-    </div>
-    <div class="column"> 
-      <img class="demo cursor" src="images/mayon-rest-house1.jpg" style="width:100%; height:50px" onclick="currentSlide(2)" alt="">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="images/mayon-rest-house2.jpg" style="width:100%; height:50px" onclick="currentSlide(3)" alt="">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="images/mayon-rest-house.jpg" style="width:100%; height:50px" onclick="currentSlide(4)" alt="">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="images/mayon-rest-house1.jpg" style="width:100%; height:50px" onclick="currentSlide(5)" alt="">
-    </div> 
-    <div class="column">
-      <img class="demo cursor" src="images/mayon-rest-house2.jpg" style="width:100%; height:50px" onclick="currentSlide(6)" alt="">
-    </div>
-  </div>
-</div>
+					<!-- modal -->
+						<div class="container1">
+						  <img src="images/mayon-rest-house.jpg" style="cursor:pointer"
+						  onclick="onClick(this)" class="modal-hover-opacity">
+						  
+						</div>
+						  
+						
+						
+						
 
 		          		<div class="spot-desc">
                         
@@ -154,7 +108,23 @@
 		          		</div>
 		          	</div>
 		          	<div class="row spot-img">
-		          		<img src="images/.jpg" alt="">
+			
+						  
+
+						  <div class="container1">
+							<img src="images/skyline.jpg" style="cursor:pointer" 
+							onclick="onClick(this)" class="modal-hover-opacity">
+						  </div>
+
+						  <div id="modal011" class="modal" onclick="this.style.display='none'">
+							<span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<div class="modal-conten">
+							  <img id="img011" style="max-width:100%">
+							</div>
+						  </div>
+  
+
+
 		          		<div class="spot-desc">
 		          			<h4>KC Land</h4>
                             <p>Located at Kabangan, Tabco City</p>
@@ -162,14 +132,20 @@
 		          		<div class="social">
 		          			
 		          			<a href="" class="text-success"><i class="fas fa-thumbs-up"></i></a>
-                          
+                           
                             <a href="" class="text-secondary"><i class="fas fa-comment"></i></a>
-                       
+                         
                             <a href="" class="text-info"><i class="fas fa-share"></i></a>
 		          		</div>
 		          	</div>
 		          	<div class="row spot-img">
-		          		<img src="images/.jpg" alt="">
+
+						<div class="container1">
+							<img src="images/vera falls2.jpg" style="cursor:pointer" 
+							onclick="onClick(this)" class="modal-hover-opacity">
+						  </div>
+						 
+						  
 		          		<div class="spot-desc">
 		          			<h4>KC Land</h4>
                             <p>Located at Kabangan, Tabco City</p>
@@ -197,25 +173,15 @@
 		          			<p></p>
 		          		</div>
 		          	</div>
-					
-					
-				
 		          </div>
 				</div>		 
 			</div>
 	</div>
-        </div>
-       
+ </div>
+ </div>
 
-       
-        <div class="apphome">
-            
-             <h1></h1>
-            
-           
-        </div>
 <script>
-        /* When the user clicks on the button, 
+       /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -233,8 +199,12 @@ window.onclick = function(event) {
       }
     }
   }
-}</script>
-        <script>
+}
+</script>
+
+
+<!-- sidenav -->
+<script>
 function openNav() {
     document.getElementById("sidenav").style.width = "300px";
     document.getElementById("main").style.marginLeft = "300px";
@@ -246,61 +216,68 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }
-
-
 </script>
+
+
 <script type="text/javascript">
-var slideIndex = 1;
-showSlides(slideIndex);
+document.getElementById("follow").addEventListener("click", openBrowser);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function openBrowser(){
+
+var url ='https://www.facebook.com/';
+
+var target ='_blank';
+
+var options ="location = yes"
+
+varref= cordova.InAppBrowser.open(url, target, options);
+
+
+ref.addEventListener('loadstart', loadstartCallback);
+
+ref.addEventListener('loadstop', loadstopCallback);
+
+ref.addEventListener('loadloaderror', loaderrorCallback);
+
+ref.addEventListener('exit', exitCallback);
+
+
+function loadstartCallback(event){
+console.log('Loading started: '+event.url)
 }
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function loadstopCallback(event){
+console.log('Loading finished: '+event.url)
 }
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}</script>
+function loaderrorCallback(error){
+console.log('Loading error: '+ error.message)
+}
+function exitCallback(){
+console.log('Browser is closed...')
+}
+}
+</script>
 
 <script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
 
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
+  
 }
 </script>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/owl.carousel.js"></script>
+<script>
+function onClick(element) {
+  var i = document.getElementById("img011").src = element.src;
+  var ii= document.getElementById("modal011").style.display = "block";
+
+  
+}
+</script>
+
+
+       <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
