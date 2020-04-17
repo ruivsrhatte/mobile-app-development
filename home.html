@@ -29,7 +29,7 @@
       <div class="menushape2"></div>
 	  <div class="navbar">
 		<a href="#home" class="active"><i class="fas fa-home"></i></a>
-		<a href="#news"><i class="fas fa-search"></i></a>
+		<a href="#news" id="box" type="button"><i class="fas fa-search"></i></a>
 		<a href="#contact" ><i style="font-size: 2em; color: rgb(209, 32, 32)" class="fas fa-heart"></i></a>
 		<a href="#contact"><i class="fas fa-map-marker-alt"></i></a>
 		<a href="#contact"><i class="far fa-user"></i></a>
@@ -264,6 +264,16 @@ function onClick(element) {
 
   
 }
+</script>
+
+
+<!-- load page -->
+<script>
+	$(document).ready(function(){
+    $("button").click(function(){
+        $("#box").load("index.html #hint");
+    });
+});
 </script>
 
 <script>
