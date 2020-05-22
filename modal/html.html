@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<header>
+
+<link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+</header>
+<style>
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+html {
+  background-color: #FFF;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: #444;
+  background-attachment: fixed;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.containerow {
+  margin: auto;
+  padding: 25px 0;
+  max-width: 1025px;
+}
+
+article {
+  padding: 15px 0;
+}
+h1, h2, p {
+  margin-bottom: 15px;
+}
+h1, h2 {
+  line-height: 1em;
+}
+.center {
+  text-align: center;
+}
+h2.subtitle {
+  font-size: inherit;
+  font-style: italic;
+  font-weight: normal;
+}
+span.keyboard-key {
+  background: #EFF0F2;
+  margin: 0 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border-top: 1px solid #F5F5F5;
+  box-shadow: inset 0 0 25px #E8E8E8, 0 1px 0 #C3C3C3, 0 2px 0 #C9C9C9, 0 2px 3px #333;
+  line-height: 23px;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0px 1px 0px #F5F5F5;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.swiper-container,
+.swiper-container * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.swiper-container .swiper-no-swiping .swiper-button-prev,
+.swiper-container .swiper-no-swiping .swiper-button-next {
+  opacity: 0;
+}
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: .1;
+}
+
+.product-gallery .product-photos-side,
+.product-gallery .product-photo-main {
+  position: relative;
+}
+
+.product-gallery .product-photo-main {
+  margin-bottom: 30px;
+}
+
+.product-gallery .product-photos-side .swiper-container {
+  height: 70px;
+}
+
+.product-gallery .product-photo-main .swiper-container {
+  height: 320px;
+}
+
+.product-gallery .product-photos-side .swiper-slide {
+  width: 70px;
+  opacity: .4;
+  transition: 225ms opacity ease-in-out;
+}
+
+.product-gallery .product-photos-side .swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
+
+.product-gallery .swiper-container {
+  position: static;
+  width: 100%;
+}
+
+.product-gallery .swiper-slide {
+  cursor: pointer;
+  text-align: center;
+}
+
+.product-gallery img {
+  max-height: 100%;
+  max-width: 100%;
+}
+/* full screen product gallery */
+
+.product-gallery-full-screen {
+  position: fixed;
+  background: #000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  width: 100vw;
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: auto;
+  z-index: 999999;
+  transition: 350ms opacity ease-in-out;
+}
+
+.product-gallery-full-screen.opened {
+  opacity: 1;
+  overflow-y: scroll;
+  pointer-events: auto;
+}
+
+.product-gallery-full-screen .swiper-container {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.product-gallery-full-screen .swiper-slide {
+  overflow: hidden;
+}
+
+.product-gallery-full-screen .swiper-slide img,
+.product-photos-side .swiper-slide img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.product-gallery-full-screen .swiper-slide img {
+  cursor: zoom-in;
+  transition: 350ms -webkit-transform ease-in-out, 350ms transform ease-in-out;
+}
+
+.product-gallery-full-screen .swiper-button-prev,
+.product-gallery-full-screen .swiper-button-next {
+  background: rgba(0, 0, 0, .4);
+  color: #aaa;
+  transition:
+    250ms opacity ease-in-out,
+    150ms color ease-in-out;
+}
+body:not(:hover) .product-gallery-full-screen .swiper-button-prev,
+body:not(:hover) .product-gallery-full-screen .swiper-button-next {
+  opacity: 0;
+  transition-delay: 1000ms;
+}
+body:hover .product-gallery-full-screen .swiper-button-prev,
+body:hover .product-gallery-full-screen .swiper-button-next {
+  transition-delay: 0ms;
+}
+
+.product-gallery-full-screen .swiper-button-prev:hover,
+.product-gallery-full-screen .swiper-button-next:hover {
+  color: #fff;
+}
+
+.product-gallery-full-screen .swiper-button-prev svg,
+.product-gallery-full-screen .swiper-button-next svg {
+  position: absolute;
+  fill: currentColor;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.gallery-nav {
+  position: absolute;
+  background: rgba(0, 0, 0, 1);
+  color: #aaa;
+  padding: 10px 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  transition:
+    250ms opacity ease-in-out;
+}
+body:not(:hover) .gallery-nav {
+  opacity: 0;
+  transition-delay: 1000ms;
+}
+body:hover .gallery-nav {
+  opacity: .65;
+  transition-delay: 0ms;
+}
+
+.gallery-nav ul,
+.gallery-nav li {
+  list-style: none;
+}
+
+.gallery-nav ul {
+  float: right;
+}
+
+.gallery-nav li {
+  float: left;
+  color: #aaa;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: 150ms color ease-in-out;
+}
+
+.gallery-nav li:hover {
+  color: #fff;
+}
+
+.gallery-nav svg {
+  display: block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+}
+
+.gallery-nav .zoom.zoom-out svg.zoom-icon-zoom-in {
+  display: none;
+}
+.gallery-nav .zoom svg.zoom-icon-zoom-out {
+  display: none;
+}
+.gallery-nav .zoom.zoom-out svg.zoom-icon-zoom-out {
+  display: block;
+}
+
+.gallery-nav .fullscreen.leavefs svg.fs-icon {
+  display: none;
+}
+
+.gallery-nav .fullscreen svg.fs-icon-exit {
+  display: none;
+}
+
+.gallery-nav .fullscreen.leavefs svg.fs-icon-exit {
+  display: block;
+}
+
+.gallery-nav .swiper-pagination {
+  position: static;
+  float: left;
+  width: auto;
+  line-height: 24px;
+}
+
+@media (max-width: 1025px) {
+  article {
+    display: none;
+  }
+  .container {
+    padding: 0;
+  }
+}
+</style>
+<body>
+<div class="main">
+  <div class="containerow">
+    <article>
+      <h1 class="center">Advanced Image Gallery</h1>
+      <h2 class="subtitle center">using jQuery, Swiper.js and fullscreen repository</h2>
+      <br/>
+      <p>Swipe or click an image in the bottom row, or click one of the pagination bullets to navigate. Click the larger image to open the larger image gallery. In the larger image gallery: click an image to zoom in or out. Click the icons in the navigation bar to zoom, close or even go fullscreen.</p>
+      <br/>
+    </article>
+    <div class="product-gallery">
+      <div class="product-photo-main">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147795/photo-2_usicl1.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147795/photo-1_tb9tvu.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147793/photo-3_baqrjd.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993299/photo-1473294312123-83488e2f8e8f_mftmer.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993301/photo-1470093851219-69951fcbb533_avhlwi.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993293/photo-1452570053594-1b985d6ea890_ljostj.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993283/photo-1428542244207-0aaec316e609_iezfmd.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993281/CBW6FWNNZL_hvpyyf.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993277/FMAJHOZ8XQ_btbyy3.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993284/iZkDQMqeQlqhoCIywoFv_6005485056_c8622e0824_o_ed11tj.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993272/G7LJSDSIGV_bjlue3.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993270/a1364128_ahdnws.jpg">
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="product-photos-side">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147795/photo-2_usicl1.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147795/photo-1_tb9tvu.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147793/photo-3_baqrjd.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993299/photo-1473294312123-83488e2f8e8f_mftmer.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993301/photo-1470093851219-69951fcbb533_avhlwi.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993293/photo-1452570053594-1b985d6ea890_ljostj.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993283/photo-1428542244207-0aaec316e609_iezfmd.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993281/CBW6FWNNZL_hvpyyf.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993277/FMAJHOZ8XQ_btbyy3.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993284/iZkDQMqeQlqhoCIywoFv_6005485056_c8622e0824_o_ed11tj.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993272/G7LJSDSIGV_bjlue3.jpg">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-zoom-container">
+                <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993270/a1364128_ahdnws.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <article>
+      <br/>
+      <br/>
+      <p><strong>Note (currently disabled):</strong> you can also use your keyboard (<span class="keyboard-key">arrow keys</span>, <span class="keyboard-key">spacebar</span>, <span class="keyboard-key">enter</span> and <span class="keyboard-key">escape</span>) to navigate, zoom and open/close the larger image gallery.</p>
+      <br/>
+      <p>
+        <strong>External sources:</strong>
+        <ul>
+          <li>
+            <a href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">swiper.min.css</a>
+          </li>
+          <li>
+            <a href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">jquery 3.1.0</a>
+          </li>
+          <li>
+            <a href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.min.js">swiper.min.js</a>
+          </li>
+        </ul>
+      </p>
+      <br/>
+      <br/>
+      <h2>Known issues:</h2>
+      <h2 class="subtitle">if you have found a way to fix some errors, please link your forked pen in a comment.</h2>
+      <br/>
+      <p><strong>Bug #1</strong> - after sliding using the mouse, keyboard navigation might not working correctly (fix: set keyboardControl to false).</p>
+      <p><strong>Bug #2</strong> - when navigating <strong>and</strong> zooming in the larger image gallery, the keyboard navigation doesn't work correctly with the smaller sliders (fix: set keyboardControl to false).</p>
+      <p><strong>Bug #3</strong> - when setting loop to true, inside the swiper options, the swiper.params.control won't be able to synchronize with the other swipers.</p>
+      <p><strong>Bug #4</strong> - Not <strong>fully</strong> supported in IE.</p>
+      <p><strong>Bug #5</strong> - When you click on a bullet pagination twice in a short time, the slider will freeze and needs a swipe before it works normal again (fix: set clickablePagination to false).</p>
+    </article>
+  </div>
+</div>
+<div class="product-gallery-full-screen">
+  <div class="swiper-container gallery-top">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147795/photo-2_usicl1.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147795/photo-1_tb9tvu.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1473147793/photo-3_baqrjd.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993299/photo-1473294312123-83488e2f8e8f_mftmer.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993301/photo-1470093851219-69951fcbb533_avhlwi.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993293/photo-1452570053594-1b985d6ea890_ljostj.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993283/photo-1428542244207-0aaec316e609_iezfmd.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993281/CBW6FWNNZL_hvpyyf.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993277/FMAJHOZ8XQ_btbyy3.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993284/iZkDQMqeQlqhoCIywoFv_6005485056_c8622e0824_o_ed11tj.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993272/G7LJSDSIGV_bjlue3.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="swiper-zoom-container">
+          <img src="https://res.cloudinary.com/derkjanspeelman/image/upload/v1477993270/a1364128_ahdnws.jpg" draggable="false" ondragstart="return false;">
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next swiper-button-white">
+      <svg fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+      </svg>
+    </div>
+    <div class="swiper-button-prev swiper-button-white">
+      <svg fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+      </svg>
+    </div>
+    <div class="gallery-nav">
+      <div class="swiper-pagination"></div>
+      <ul class="gallery-menu">
+        <li class="zoom">
+          <svg class="zoom-icon-zoom-in" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/>
+          </svg>
+          <svg class="zoom-icon-zoom-out" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/>
+          </svg>
+        </li>
+        <li class="fullscreen">
+          <svg class="fs-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+          </svg>
+          <svg class="fs-icon-exit" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>
+          </svg>
+        </li>
+        <li class="close">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+$(document).ready(function() {
+  // --- VARIABLES ---
+  var swiperSide = new Swiper('.product-photos-side .swiper-container', {
+    direction: 'horizontal',
+    centeredSlides: true,
+    spaceBetween: 30,
+    slidesPerView: 'auto',
+    touchRatio: 0.2,
+    slideToClickedSlide: true,
+  })
+  var swiperProduct = new Swiper('.product-photo-main .swiper-container', {
+    direction: 'horizontal',
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    // keyboardControl: true,
+  })
+  var galleryTop = new Swiper('.product-gallery-full-screen .gallery-top', {
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    pagination: '.swiper-pagination',
+    paginationType: 'fraction',
+    spaceBetween: 10,
+    keyboardControl: true,
+    noSwiping: true,
+    zoom: true,
+  })
+  swiperSide.params.control = swiperProduct || galleryTop;
+  swiperProduct.params.control = swiperSide || galleryTop;
+  galleryTop.params.control = swiperProduct || swiperSide;
+
+  var galleryOpen = false,
+      fullscreen = false,
+      fsTrigger = $('.gallery-nav .fullscreen')[0],
+      fsGallery = $('.product-gallery-full-screen')[0],
+      fsFunction = fsGallery.requestFullscreen;
+  // browser support check
+  if (!fsFunction) {
+    ['webkitRequestFullScreen',
+      'mozRequestFullscreen',
+      'msRequestFullScreen'
+    ].forEach(function(req) {
+      fsFunction = fsFunction || fsGallery[req];
+    });
+  }
+
+  // --- FUNCTIONS ---
+  function openImageGallery(slide) {
+    galleryOpen = true;
+    var galleryX = $('.product-photo-main').offset().left,
+      galleryY = $('.product-photo-main').offset().top,
+      galleryHeight = $('.product-photo-main').height(),
+      galleryWidth = $('.product-photo-main').width(),
+      activeIndex = slide.index(),
+      indexes = $('.product-photo-main').find('.swiper-slide').length;
+    $('body').css('overflow', 'hidden');
+    $('.main, .product-gallery-full-screen').css('overflow-y', 'scroll');
+    $('.product-gallery-full-screen').addClass('opened');
+    galleryTop.activeIndex = activeIndex;
+    galleryTop.onResize();
+  }
+
+  function goFs() {
+    fullscreen = true;
+    $('.product-gallery-full-screen').css('overflow-y', 'auto');
+    $('.fullscreen').addClass('leavefs');
+    fsFunction.call(fsGallery);
+  }
+
+  function leaveFs() {
+    fullscreen = false;
+    $('.product-gallery-full-screen').css('overflow-y', 'scroll');
+    $('.fullscreen').removeClass('leavefs');
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+
+  function closeImageGallery() {
+    // if(zoomed) {
+    //   zoom($('.product-gallery-full-screen .swiper-slide-active img'));
+    // }
+    $('body').css('overflow', 'auto');
+    $('.main, .product-gallery-full-screen').css('overflow-y', 'auto');
+    galleryOpen = false;
+    leaveFs();
+    $('.product-gallery-full-screen').removeClass('opened');
+  }
+
+  // --- EVENTS ---
+  // open the large image gallery
+  $('.product-photo-main .swiper-slide').on('click touch', function() {
+    var slide = $(this);
+    openImageGallery(slide);
+  });
+  // close the large image gallery
+  $('.gallery-nav .close').on('click touch', function() {
+    closeImageGallery();
+  });
+  // zoom in / out
+  $('.zoom').on('click touch', function() {
+    // zoom
+  });
+  // fullscreen toggle
+  $(fsTrigger).on('click touch', function() {
+    if (fullscreen) {
+      leaveFs();
+    } else {
+      goFs();
+    }
+  });
+
+  // keyboard controls
+  $(document).on('keydown', function(e) {
+    e.preventDefault();
+    var code = e.keyCode || e.which;
+    // open the large image gallery
+    if (code == 13 && !galleryOpen) {
+      var slide = $('.product-photo-main .swiper-slide.swiper-slide-active');
+      openImageGallery(slide);
+    }
+    // close the large image gallery
+    if (code == 27 && galleryOpen) {
+      closeImageGallery();
+    }
+    if (code == 122) {
+      if(galleryOpen) {
+        if (fullscreen) {
+          leaveFs();
+        } else {
+          goFs();
+        }
+      }
+    }
+  });
+
+  $(window).on('resize', function() {
+    galleryTop.onResize();
+    swiperSide.onResize();
+    swiperProduct.onResize();
+  });
+});
+</script>
+</html>
